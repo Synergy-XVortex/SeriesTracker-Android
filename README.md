@@ -25,6 +25,7 @@
 ## Architecture du projet
 
 Le projet suit une structure Android classique :
+```bash
 SeriesTracker-Android/
 │── app/
 │ ├── src/
@@ -37,7 +38,7 @@ SeriesTracker-Android/
 ├── gradle/
 ├── build.gradle
 └── settings.gradle
-
+```
 ---
 
 ##Installation
@@ -53,6 +54,7 @@ SeriesTracker-Android/
 ```bash
 git clone https://github.com/Synergy-XVortex/SeriesTracker-Android.git
 cd SeriesTracker-Android
+```
 1. Ouvrir le projet dans Android Studio  
 2. Laisser Gradle synchroniser  
 3. Lancer l'application sur un émulateur ou un appareil physique  
