@@ -1,10 +1,10 @@
-#SeriesTracker Android
+# SeriesTracker Android
 
 **SeriesTracker** est une application Android permettant de suivre facilement la progression de vos séries TV en enregistrant le dernier épisode visionné.
 
 ---
 
-##Fonctionnalités
+## Fonctionnalités
 
 - Suivi des séries favorites  
 - Enregistrement du dernier épisode vu  
@@ -14,7 +14,7 @@
 
 ---
 
-##Aperçu
+## Aperçu
 
 - Plateforme : Android  
 - Version minimale : Android 4.4+  
@@ -41,7 +41,7 @@ SeriesTracker-Android/
 ```
 ---
 
-##Installation
+## Installation
 
 ### Prérequis
 
@@ -61,7 +61,7 @@ cd SeriesTracker-Android
 
 ---
 
-##Utilisation
+## Utilisation
 
 1. Choisir une série dans la liste  
 2. Indiquer l’épisode en cours  
@@ -87,7 +87,7 @@ cd SeriesTracker-Android
 
 ---
 
-##Contribution
+## Contribution
 
 Les contributions sont les bienvenues :
 
