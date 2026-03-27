@@ -4,6 +4,18 @@
 
 ---
 
+## Aperçu de l'application
+
+Voici le résultat final de l'interface, affichant la liste des séries populaires ainsi que la gestion des erreurs réseau :
+
+<div align="center">
+    <img src="image/home_screen.png" alt="Écran d'accueil de SeriesTracker" width="300"/>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <img src="image/error_screen.png" alt="Écran d'erreur et mode hors-ligne" width="300"/>
+</div>
+
+---
+
 ## Fonctionnalités
 
 * Récupération en temps réel des séries les plus populaires via l'API EpisoDate.
