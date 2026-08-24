@@ -1,112 +1,113 @@
 # SeriesTracker Android
 
-**SeriesTracker** est une application Android moderne développée en Kotlin qui permet de découvrir les séries TV les plus populaires du moment grâce à l'intégration de l'API EpisoDate.
+**SeriesTracker** is a modern Android app built in Kotlin that lets you discover the most popular TV shows right now, powered by the EpisoDate API.
 
 ---
 
-## Aperçu de l'application
+## App preview
 
-Voici le résultat final de l'interface, affichant la liste des séries populaires ainsi que la gestion des erreurs réseau :
+The final result: a list of popular shows, plus graceful handling of network errors.
 
-<div align="center">
-    <img src="image/home_screen.png" alt="Écran d'accueil de SeriesTracker" width="300"/>
-    &nbsp;&nbsp;&nbsp;&nbsp;
-    <img src="image/error_screen.png" alt="Écran d'erreur et mode hors-ligne" width="300"/>
-</div>
+![SeriesTracker home screen](image/home_screen.png) ![Error and offline state](image/error_screen.png)
 
 ---
 
-## Fonctionnalités
+## Features
 
-* Récupération en temps réel des séries les plus populaires via l'API EpisoDate.
-* Affichage d'une liste fluide avec les affiches des séries, le réseau de diffusion et le statut (En cours / Terminé).
-* Chargement asynchrone et mise en cache des images.
-* Gestion robuste des états de l'interface (Indicateur de chargement, affichage des données, gestion des erreurs réseau avec bouton de relance).
-* Interface utilisateur 100% déclarative.
-
----
-
-## Technologies et Architecture
-
-L'application respecte les standards de développement recommandés par Google, en utilisant l'architecture **MVVM** (Model-View-ViewModel) couplée aux principes de la **Clean Architecture**.
-
-* **Langage :** Kotlin
-* **Interface Utilisateur :** Jetpack Compose (Material 3)
-* **Injection de Dépendances :** Dagger-Hilt
-* **Réseau & API :** Retrofit2, OkHttp3 (Logging Interceptor), Gson
-* **Chargement d'images :** Coil
-* **Asynchronisme :** Coroutines & Kotlin Flow (`StateFlow`)
+- Real-time fetching of the most popular TV shows via the EpisoDate API.
+- Smooth list view showing each show's poster, broadcast network, and status (Running / Ended).
+- Asynchronous image loading with caching.
+- Robust UI state handling (loading indicator, data display, network error state with a retry button).
+- 100% declarative UI.
 
 ---
 
-## Architecture du projet
+## Tech stack & architecture
 
-Le code est organisé par couches de responsabilités (Feature/Layer packaging) :
+The app follows Google's recommended standards, using **MVVM** (Model-View-ViewModel) combined with **Clean Architecture** principles.
 
-```text
+- **Language:** Kotlin
+- **UI:** Jetpack Compose (Material 3)
+- **Dependency injection:** Dagger-Hilt
+- **Networking & API:** Retrofit2, OkHttp3 (Logging Interceptor), Gson
+- **Image loading:** Coil
+- **Async:** Coroutines & Kotlin Flow (`StateFlow`)
+
+---
+
+## Project structure
+
+The code is organized by responsibility layer (feature/layer packaging):
+
+```
 SeriesTracker-Android/app/src/main/java/com/example/seriestracker/
 │
-├── data/           # Couche de données
-│   ├── mapper/     # Conversion des DTOs en Modèles
-│   ├── remote/     # DTOs et interface API Retrofit
-│   └── repository/ # TvShowRepository (Gestion de la source de vérité)
+├── data/           # Data layer
+│   ├── mapper/     # DTO-to-model conversion
+│   ├── remote/     # DTOs and Retrofit API interface
+│   └── repository/ # TvShowRepository (single source of truth)
 │
-├── di/             # Injection de dépendances
-│   └── NetworkModule # Fournisseur Hilt pour Retrofit et OkHttp
+├── di/             # Dependency injection
+│   └── NetworkModule  # Hilt provider for Retrofit and OkHttp
 │
-├── domain/         # Couche métier
-│   └── model/      # Modèles de données propres (TvShow)
+├── domain/         # Business layer
+│   └── model/      # Clean data models (TvShow)
 │
-└── ui/             # Couche de présentation
-    ├── components/ # Composants Compose réutilisables (CarteSerie)
-    ├── screens/    # Écrans entiers (EcranAccueil)
-    ├── theme/      # Couleurs, typographie (Material Theme)
-    └── viewmodel/  # PopularShowsViewModel et gestion de l'UiState
+└── ui/             # Presentation layer
+    ├── components/ # Reusable Compose components (ShowCard)
+    ├── screens/    # Full screens (HomeScreen)
+    ├── theme/      # Colors, typography (Material theme)
+    └── viewmodel/  # PopularShowsViewModel and UiState management
 ```
----
-
-## Installation et Test
-
-### Prérequis
-* Android Studio (version récente supportant Jetpack Compose)
-* SDK Android avec `minSdk` 24 (Android 7.0) et `targetSdk` 36
-
-### Via le code source
-1. Cloner le dépôt : 
-```bash
-git clone [https://github.com/Synergy-XVortex/SeriesTracker-Android.git](https://github.com/Synergy-XVortex/SeriesTracker-Android.git)
-```
-2. Ouvrir le projet dans Android Studio.
-3. Laisser Gradle synchroniser les dépendances.
-4. Lancer l'application sur un émulateur ou un appareil physique.
-
-### Via l'APK
-Un fichier exécutable de l'application est disponible directement dans ce dépôt pour une installation rapide sur un appareil Android :
-* Naviguez dans le dossier `/apk` à la racine du projet.
-* Téléchargez et installez le fichier `SeriesTracker-debug.apk`.
 
 ---
 
-## Évolutions possibles
+## Getting started
 
-* Ajout d'une barre de recherche pour trouver une série spécifique.
-* Sauvegarde des séries favorites dans une base de données locale (Room).
-* Ajout d'un écran de détail pour afficher le résumé d'une série sélectionnée.
-* Pagination dynamique (Infinite Scrolling) pour charger la suite de la liste lors du défilement.
+### Requirements
+
+- Android Studio (a recent version with Jetpack Compose support)
+- Android SDK with `minSdk` 24 (Android 7.0) and `targetSdk` 36
+
+### From source
+
+1. Clone the repo:
+   ```bash
+   git clone https://github.com/Synergy-XVortex/SeriesTracker-Android.git
+   ```
+2. Open the project in Android Studio.
+3. Let Gradle sync the dependencies.
+4. Run the app on an emulator or a physical device.
+
+### From the APK
+
+A ready-to-install APK is available directly in this repo:
+
+- Go to the `/apk` folder at the project root.
+- Download and install `SeriesTracker-debug.apk`.
 
 ---
 
-## Contribution
+## Possible next steps
 
-Les contributions sont les bienvenues :
-
-1. Fork du projet
-2. Créer une branche (`feature/NouvelleFonctionnalite`)
-3. Commit vos modifications
-4. Push et ouvrir une Pull Request
+- Add a search bar to find a specific show.
+- Save favorite shows to a local database (Room).
+- Add a detail screen showing a selected show's synopsis.
+- Dynamic pagination (infinite scrolling) to load more of the list while scrolling.
 
 ---
 
-## Auteurs
+## Contributing
 
-Projet développé par **Synergy-XVortex / Zeineb / TTeano**.
+Contributions are welcome:
+
+1. Fork the project
+2. Create a branch (`feature/NewFeature`)
+3. Commit your changes
+4. Push and open a pull request
+
+---
+
+## Author
+
+Developed by [Clément Vongsanga](https://github.com/Synergy-XVortex).
