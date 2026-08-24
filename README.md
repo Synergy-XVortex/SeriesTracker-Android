@@ -8,7 +8,11 @@
 
 The final result: a list of popular shows, plus graceful handling of network errors.
 
-![SeriesTracker home screen](image/home_screen.png) ![Error and offline state](image/error_screen.png)
+<div align="center">
+    <img src="image/home_screen.png" alt="Écran d'accueil de SeriesTracker" width="300"/>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <img src="image/error_screen.png" alt="Écran d'erreur et mode hors-ligne" width="300"/>
+</div>
 
 ---
 
